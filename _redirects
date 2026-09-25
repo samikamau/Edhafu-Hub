@@ -9,3 +9,7 @@
 # Short, shareable URL for the public demo request form, which actually
 # lives inside the ledgers app.
 /request-demo  /ledgers/request-demo.html  301
+
+# Free trial sign-up for Edhafu Payroll. Change the target here if the
+# sign-up page moves; every "Start free trial" button uses /free-trial.
+/free-trial  /payroll/  301

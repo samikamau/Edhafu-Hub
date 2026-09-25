@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Edhafu - Payroll and member finance software for Kenya</title>
-<meta name="description" content="Edhafu builds simple financial software for Kenya: Kenya-ready payroll for businesses and accountants, and member finance for SACCOs, Chamas, churches and residents associations." />
+<meta name="description" content="Edhafu builds simple financial software for Kenya: Kenya-ready payroll for businesses and accountants, and member finance for SACCOs, Chamas, welfare groups and residents associations." />
 <meta name="theme-color" content="#06325B" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://edhafu.com/" />
@@ -118,20 +118,27 @@
   .hero h1{font-size:50px;line-height:1.05;margin-bottom:16px;color:var(--navy);}
   .hero h1 .rule{display:block;width:64px;height:4px;background:var(--red);border-radius:2px;margin-top:16px;}
   .hero p.sub{font-size:16.5px;color:var(--muted);max-width:500px;margin-bottom:22px;}
-  .hero-products{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;max-width:520px;}
+  .hero-products{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-bottom:22px;max-width:520px;}
   .hp-tile{
-    display:block;background:var(--white);border:1px solid var(--border);border-radius:12px;
+    display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:12px;
     padding:14px 16px;border-left:4px solid var(--navy);transition:box-shadow .15s ease, border-color .15s ease;
   }
   .hp-tile.ledgers{border-left-color:var(--red);}
   .hp-tile:hover{box-shadow:0 10px 24px rgba(19,32,51,.10);}
+  .hp-tile .hp-link{
+    margin-top:10px;align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--white);
+    background:var(--navy);padding:7px 11px;border-radius:8px;white-space:nowrap;
+  }
+  .hp-tile.ledgers .hp-link{background:var(--red);}
+  .hp-tile .hp-link:hover{opacity:.9;}
+  .hp-tile .hp-desc{flex:1;}
   .hp-tile strong{display:block;font-size:15px;color:var(--navy);}
   .hp-tile span{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px;}
   .hero-ctas{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
   .trust-line{font-size:13px;color:var(--muted);}
   @media (max-width:900px){
     .hero{padding:28px 0 56px;}
-    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:40px;}
     .hero h1{font-size:38px;}
   }
   @media (max-width:420px){
@@ -139,12 +146,21 @@
     .hero p.sub{font-size:15.5px;margin-bottom:18px;}
     .hp-tile{padding:12px;}
     .hp-tile strong{font-size:14px;}
+    .hp-tile .hp-link{font-size:12px;padding:7px 9px;}
     .hero-ctas{flex-wrap:nowrap;}
     .hero-ctas .btn{flex:1;padding:12px 10px;font-size:14px;}
   }
 
   /* Device scene: laptop showing Ledgers, phone showing Payroll */
-  .devices{position:relative;padding:0 110px 34px 0;}
+  .hero-visual{
+    position:relative;border-radius:22px;padding:96px 28px 28px;
+    /* Fallback colours show until images/hero-office.jpg is uploaded */
+    background:
+      linear-gradient(180deg, rgba(6,50,91,0) 35%, rgba(6,50,91,.45) 100%),
+      url("images/hero-office.jpg") center 22% / cover no-repeat,
+      linear-gradient(135deg,#DCE3EC,#B9C6D6);
+  }
+  .devices{position:relative;padding:0 96px 26px 0;}
   .laptop-screen{
     background:var(--navy-deep);border-radius:14px 14px 4px 4px;padding:10px;
     box-shadow:0 30px 60px rgba(19,32,51,.18);
@@ -190,7 +206,8 @@
   .ph-row span:last-child{font-weight:600;}
   .ph-btn{margin-top:9px;background:var(--red);color:#fff;font-size:9px;font-weight:600;text-align:center;border-radius:7px;padding:7px;}
   @media (max-width:560px){
-    .devices{padding:0 60px 26px 0;}
+    .hero-visual{padding:64px 14px 16px;border-radius:18px;}
+    .devices{padding:0 60px 20px 0;}
     .app{grid-template-columns:1fr;min-height:0;}
     .app-side{display:none;}
     .app-bottom{grid-template-columns:1fr;}
@@ -337,16 +354,17 @@
       <h1>Finance, simplified.<span class="rule" aria-hidden="true"></span></h1>
       <p class="sub">Simple financial software for Kenya, built by practising accountants. Choose the product that fits the money you manage.</p>
       <div class="hero-products">
-        <a class="hp-tile payroll" href="/payroll/"><strong>Edhafu Payroll</strong><span>PAYE, NSSF, SHIF, Housing Levy and returns, for businesses and accountants</span></a>
-        <a class="hp-tile ledgers" href="#products"><strong>Edhafu Ledgers</strong><span>Members, contributions and loans for SACCOs, Chamas and associations</span></a>
+        <div class="hp-tile payroll"><strong>Edhafu Payroll</strong><span class="hp-desc">PAYE, NSSF, SHIF, Housing Levy and returns, for businesses and accountants</span><a class="hp-link" href="/free-trial">Start free trial</a></div>
+        <div class="hp-tile ledgers"><strong>Edhafu Ledgers</strong><span class="hp-desc">Members, contributions and loans for SACCOs, Chamas and associations</span><a class="hp-link" href="/request-demo">Request a demo</a></div>
       </div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="/request-demo">Request a demo</a>
         <a class="btn btn-secondary" href="#products">Compare products</a>
+        <a class="btn btn-secondary" href="#contact">Talk to us</a>
       </div>
       <div class="trust-line">Works on your computer and your phone.</div>
     </div>
 
+    <div class="hero-visual">
     <div class="devices" role="img" aria-label="Edhafu Ledgers dashboard on a laptop and an Edhafu Payroll summary on a phone">
       <div class="laptop">
         <div class="laptop-screen">
@@ -403,6 +421,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -426,7 +445,8 @@
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Multiple companies under one login</li>
         </ul>
         <div class="product-ctas">
-          <a class="product-cta" href="/payroll/">Open Edhafu Payroll</a>
+          <a class="product-cta" href="/free-trial">Start free trial</a>
+          <a class="product-cta quiet" href="/payroll/">Sign in</a>
         </div>
       </div>
       <div class="product-card ledgers reveal">
@@ -497,7 +517,7 @@
       <div class="who-card reveal"><h4>SACCOs</h4><p>Manage members, deposits, loans and guarantors with reports ready for the AGM.</p><div class="uses">Ledgers</div></div>
       <div class="who-card reveal"><h4>Chamas and investment groups</h4><p>Know exactly who has paid, who owes, and what the group is worth.</p><div class="uses">Ledgers</div></div>
       <div class="who-card reveal"><h4>Residents associations</h4><p>Track levies, expenses and balances, and share clear statements with residents.</p><div class="uses">Ledgers</div></div>
-      <div class="who-card reveal"><h4>Churches and welfare groups</h4><p>Record giving, welfare contributions and payouts with full accountability.</p><div class="uses">Ledgers</div></div>
+      <div class="who-card reveal"><h4>Welfare groups</h4><p>Record welfare contributions and payouts with full accountability to members.</p><div class="uses">Ledgers</div></div>
     </div>
   </div>
 </section>
