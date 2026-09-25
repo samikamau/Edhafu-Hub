@@ -153,14 +153,41 @@
 
   /* Device scene: laptop showing Ledgers, phone showing Payroll */
   .hero-visual{
-    position:relative;border-radius:22px;padding:96px 28px 28px;
-    /* Fallback colours show until images/hero-office.jpg is uploaded */
-    background:
-      linear-gradient(180deg, rgba(6,50,91,0) 35%, rgba(6,50,91,.45) 100%),
-      url("images/hero-office.jpg") center 22% / cover no-repeat,
-      linear-gradient(135deg,#DCE3EC,#B9C6D6);
+    position:relative;border-radius:22px;overflow:hidden;
+    padding:280px 22px 20px;background:#E6ECF3;
   }
-  .devices{position:relative;padding:0 96px 26px 0;}
+  .hero-visual .scene{position:absolute;inset:0;width:100%;height:100%;}
+  /* Real photo sits over the illustration; if the photo file is missing the illustration shows */
+  .hero-visual .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+  .hero-visual.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,50,91,0) 45%,rgba(6,50,91,.35) 100%);pointer-events:none;}
+  .hero-visual .devices{z-index:1;}
+  /* Smaller screens so the accountant stays in view */
+  .hero-visual .devices{position:relative;display:flex;align-items:flex-end;gap:14px;padding:0;}
+  .hero-visual .laptop{width:54%;}
+  .hero-visual .app{grid-template-columns:78px 1fr;min-height:0;}
+  .hero-visual .app-side{padding:10px 7px;}
+  .hero-visual .app-side .brand{font-size:9px;margin-bottom:8px;}
+  .hero-visual .app-side .item{font-size:8.5px;padding:4px 6px;}
+  .hero-visual .app-main{padding:9px;}
+  .hero-visual .app-title{font-size:10px;margin-bottom:6px;}
+  .hero-visual .app-kpis{gap:5px;margin-bottom:6px;}
+  .hero-visual .kpi{padding:5px;}
+  .hero-visual .kpi .l{font-size:7.5px;}
+  .hero-visual .kpi .v{font-size:10px;}
+  .hero-visual .app-bottom{grid-template-columns:1fr;}
+  .hero-visual .mini-list{display:none;}
+  .hero-visual .mini-chart{height:62px;padding:6px;gap:4px;}
+  .hero-visual .laptop-screen{padding:6px;border-radius:10px 10px 3px 3px;}
+  .hero-visual .laptop-base{height:9px;}
+  .hero-visual .phone{position:relative;right:auto;bottom:auto;width:104px;margin-left:auto;border-radius:20px;padding:5px;}
+  .hero-visual .phone-screen{border-radius:16px;padding:11px 8px 9px;}
+  .hero-visual .ph-title{font-size:9.5px;margin-bottom:5px;}
+  .hero-visual .ph-net{padding:6px;border-radius:8px;margin-bottom:5px;}
+  .hero-visual .ph-net .v{font-size:9.5px;}
+  .hero-visual .ph-net .l{font-size:7.5px;}
+  .hero-visual .ph-row{font-size:7.5px;padding:3px 0;white-space:nowrap;}
+  .hero-visual .ph-btn{font-size:7.5px;padding:5px;margin-top:6px;}
+  
   .laptop-screen{
     background:var(--navy-deep);border-radius:14px 14px 4px 4px;padding:10px;
     box-shadow:0 30px 60px rgba(19,32,51,.18);
@@ -206,8 +233,14 @@
   .ph-row span:last-child{font-weight:600;}
   .ph-btn{margin-top:9px;background:var(--red);color:#fff;font-size:9px;font-weight:600;text-align:center;border-radius:7px;padding:7px;}
   @media (max-width:560px){
-    .hero-visual{padding:64px 14px 16px;border-radius:18px;}
-    .devices{padding:0 60px 20px 0;}
+    .hero-visual{padding:250px 12px 14px;border-radius:18px;}
+    .hero-visual .laptop{width:62%;}
+    .hero-visual .app{grid-template-columns:1fr;}
+    .hero-visual .phone{width:90px;}
+    .hero-visual .ph-row{font-size:7px;}
+    .hero-visual .ph-head,.hero-visual .ph-title,.hero-visual .ph-btn{white-space:nowrap;font-size:7.5px;}
+    .hero-visual .ph-net .v{font-size:8.5px;}
+    .hero-visual .phone-screen{padding:10px 6px 8px;}
     .app{grid-template-columns:1fr;min-height:0;}
     .app-side{display:none;}
     .app-bottom{grid-template-columns:1fr;}
@@ -365,7 +398,86 @@
     </div>
 
     <div class="hero-visual">
-    <div class="devices" role="img" aria-label="Edhafu Ledgers dashboard on a laptop and an Edhafu Payroll summary on a phone">
+<svg class="scene" viewBox="0 0 600 440" preserveAspectRatio="xMidYMin slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <!-- Office wall and floor light -->
+  <rect width="600" height="440" fill="#E6ECF3"/>
+  <rect y="0" width="600" height="8" fill="#D5DEE8"/>
+  <!-- Window with city view -->
+  <rect x="26" y="34" width="176" height="186" rx="6" fill="#FFFFFF"/>
+  <rect x="34" y="42" width="160" height="170" rx="3" fill="#CFE0EF"/>
+  <rect x="44" y="130" width="26" height="82" fill="#A9BCD0"/>
+  <rect x="74" y="104" width="30" height="108" fill="#93A9C1"/>
+  <rect x="108" y="140" width="22" height="72" fill="#B3C4D6"/>
+  <rect x="134" y="88" width="34" height="124" fill="#8AA1BB"/>
+  <rect x="170" y="124" width="20" height="88" fill="#A9BCD0"/>
+  <g fill="#DCE8F3" opacity=".9">
+    <rect x="80" y="114" width="6" height="6"/><rect x="92" y="114" width="6" height="6"/><rect x="80" y="128" width="6" height="6"/><rect x="92" y="142" width="6" height="6"/>
+    <rect x="141" y="98" width="6" height="6"/><rect x="154" y="98" width="6" height="6"/><rect x="141" y="112" width="6" height="6"/><rect x="154" y="126" width="6" height="6"/><rect x="141" y="140" width="6" height="6"/>
+  </g>
+  <rect x="112" y="42" width="4" height="170" fill="#FFFFFF"/>
+  <rect x="34" y="124" width="160" height="4" fill="#FFFFFF"/>
+  <!-- Shelf with binders -->
+  <rect x="432" y="104" width="150" height="8" rx="2" fill="#B78B5E"/>
+  <rect x="444" y="52" width="16" height="52" rx="2" fill="#06325B"/>
+  <rect x="462" y="52" width="16" height="52" rx="2" fill="#06325B"/>
+  <rect x="480" y="56" width="16" height="48" rx="2" fill="#D71F32"/>
+  <rect x="498" y="52" width="16" height="52" rx="2" fill="#9AA8B8"/>
+  <rect x="516" y="60" width="44" height="12" rx="2" fill="#C9D3DE" transform="rotate(-8 538 66)"/>
+  <g fill="#FFFFFF" opacity=".85"><rect x="448" y="64" width="8" height="12" rx="1"/><rect x="466" y="64" width="8" height="12" rx="1"/><rect x="484" y="68" width="8" height="12" rx="1"/></g>
+  <!-- Plant on shelf -->
+  <path d="M556 104 l-8-26 h28 l-8 26z" fill="#E7E2DA"/>
+  <path d="M562 80 C548 60 540 58 532 52 C546 52 558 60 562 76 C564 58 572 48 584 44 C578 58 572 68 564 80z" fill="#3E8E6A"/>
+
+  <!-- Chair back -->
+  <rect x="262" y="140" width="136" height="200" rx="26" fill="#223246"/>
+  <!-- Torso: white shirt, navy tie -->
+  <path d="M246 330 C248 268 262 240 300 230 L360 230 C398 240 412 268 414 330 Z" fill="#F4F7FB"/>
+  <path d="M300 230 L330 262 L360 230 L352 226 L330 244 L308 226 Z" fill="#DDE5EE"/>
+  <path d="M325 246 L335 246 L339 256 L333 310 L327 310 L321 256 Z" fill="#06325B"/>
+  <path d="M325 246 L335 246 L333 254 L327 254 Z" fill="#05294D"/>
+  <!-- Neck and head -->
+  <rect x="316" y="200" width="28" height="36" rx="8" fill="#6E4430"/>
+  <ellipse cx="330" cy="176" rx="33" ry="39" fill="#7A4B34"/>
+  <ellipse cx="297" cy="180" rx="6" ry="10" fill="#6E4430"/>
+  <ellipse cx="363" cy="180" rx="6" ry="10" fill="#6E4430"/>
+  <!-- Short hair -->
+  <path d="M297 168 C295 142 312 132 330 132 C350 132 366 142 363 168 C360 154 350 148 330 148 C312 148 300 154 297 168 Z" fill="#17110E"/>
+  <!-- Beard -->
+  <path d="M302 186 C304 208 316 216 330 216 C344 216 356 208 358 186 C352 200 344 204 330 204 C316 204 308 200 302 186 Z" fill="#2A1D16"/>
+  <!-- Glasses, eyes looking down at the desk -->
+  <g fill="none" stroke="#17110E" stroke-width="2.4">
+    <rect x="306" y="170" width="20" height="14" rx="5"/>
+    <rect x="334" y="170" width="20" height="14" rx="5"/>
+    <path d="M326 176 h8"/>
+  </g>
+  <g stroke="#17110E" stroke-width="2" stroke-linecap="round"><path d="M311 179 q5 3 10 0"/><path d="M339 179 q5 3 10 0"/></g>
+  <path d="M322 197 q8 5 16 0" stroke="#4A2C1F" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Arms resting on the desk -->
+  <path d="M262 262 C240 280 236 318 250 338 L286 338 C278 314 280 292 290 276 Z" fill="#F4F7FB"/>
+  <path d="M398 262 C420 280 430 312 424 336 L386 338 C392 314 384 292 372 278 Z" fill="#F4F7FB"/>
+
+  <!-- Desk -->
+  <rect x="0" y="330" width="600" height="110" fill="#C49A6C"/>
+  <rect x="0" y="330" width="600" height="10" fill="#D6AE80"/>
+  <!-- Papers, pen hand, calculator, mug -->
+  <g transform="rotate(-6 400 360)">
+    <rect x="360" y="336" width="86" height="60" rx="3" fill="#FFFFFF"/>
+    <g stroke="#C9D3DE" stroke-width="3" stroke-linecap="round"><path d="M370 350 h60"/><path d="M370 362 h50"/><path d="M370 374 h62"/><path d="M370 386 h40"/></g>
+  </g>
+  <ellipse cx="404" cy="342" rx="14" ry="10" fill="#7A4B34"/>
+  <path d="M404 340 l18 -20" stroke="#06325B" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="262" cy="342" rx="15" ry="10" fill="#7A4B34"/>
+  <rect x="470" y="340" width="46" height="62" rx="6" fill="#2F3E52"/>
+  <rect x="476" y="346" width="34" height="12" rx="2" fill="#C8E6D6"/>
+  <g fill="#8C9AAE"><circle cx="482" cy="368" r="3.5"/><circle cx="493" cy="368" r="3.5"/><circle cx="504" cy="368" r="3.5"/><circle cx="482" cy="380" r="3.5"/><circle cx="493" cy="380" r="3.5"/><circle cx="504" cy="380" r="3.5"/><circle cx="482" cy="392" r="3.5"/><circle cx="493" cy="392" r="3.5"/></g>
+  <circle cx="504" cy="392" r="3.5" fill="#D71F32"/>
+  <rect x="540" y="330" width="30" height="34" rx="5" fill="#FFFFFF"/>
+  <path d="M570 338 q12 0 12 10 q0 10 -12 10" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+  <rect x="540" y="330" width="30" height="7" rx="3" fill="#D71F32"/>
+</svg>
+    <img class="hero-photo" src="images/hero-office.jpg" alt="" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()" />
+    <div class="devices" role="img" aria-label="An accountant working at his desk in an office, with the Edhafu Ledgers dashboard on a laptop and an Edhafu Payroll summary on a phone">
       <div class="laptop">
         <div class="laptop-screen">
           <div class="app">
@@ -412,7 +524,7 @@
         <div class="phone-screen">
           <div class="ph-head">Edhafu Payroll</div>
           <div class="ph-title">March payroll</div>
-          <div class="ph-net"><div class="l">Net pay, 24 staff</div><div class="v">KES 633,393</div></div>
+          <div class="ph-net"><div class="l">Net pay</div><div class="v">KES 633,393</div></div>
           <div class="ph-row"><span>PAYE</span><span>118,560</span></div>
           <div class="ph-row"><span>NSSF</span><span>25,920</span></div>
           <div class="ph-row"><span>SHIF</span><span>22,341</span></div>
