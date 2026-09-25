@@ -1,10 +1,10 @@
 /payroll/*  https://melodious-banoffee-58bd5a.netlify.app/:splat  200
 /ledgers/*  https://finlens-ledgers.netlify.app/:splat  200
 
-# Send the bare path (no trailing slash) to the slash version, so relative
-# asset paths like js/nav.js resolve correctly no matter how someone types
-# or shares the link.
+# Send the bare paths (no trailing slash) to the slash version, so relative
+# asset paths resolve correctly no matter how someone types or shares the link.
 /ledgers  /ledgers/  301
+/payroll  /payroll/  301
 
 # Short, shareable URL for the public demo request form, which actually
 # lives inside the ledgers app.
