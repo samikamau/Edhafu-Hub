@@ -1,6 +1,7 @@
 # Short links
 /terms    /legal/terms/    301
 /privacy  /legal/privacy/  301
+/payroll/login.html  /payroll/  301
 /payroll/*  https://melodious-banoffee-58bd5a.netlify.app/:splat  200
 /ledgers/*  https://finlens-ledgers.netlify.app/:splat  200
 
