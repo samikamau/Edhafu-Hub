@@ -3,7 +3,7 @@
 Current prices are shown on the pricing page and in your account. Prices are in Kenya Shillings. Edhafu Technologies is not VAT-registered, so no VAT is charged. If we register for VAT, we will give 30 days' notice before VAT is added.
 
 - **Edhafu Payroll**: your fee is calculated automatically from the total active employees across all companies under your account. The free plan applies only to a Subscriber with a single company.
-- **Edhafu Ledgers**: your organisation's fee is set by the plan it selects. Organisation account numbers run EL1001, EL1002 and so on.
+- **Edhafu Ledgers**: your organisation's fee is set by the plan it selects. Organisation account numbers run EL2050, EL2051 and so on.
 
 ### 4.2 Who pays
 
@@ -12,7 +12,7 @@ For Edhafu Payroll, only the account owner can pay. For Edhafu Ledgers, the orga
 ### 4.3 How to pay
 
 1. **In-app (M-Pesa STK Push)**: click "Pay Subscription", confirm the amount and phone number, and enter your M-Pesa PIN on your phone.
-2. **Paybill**: use the Business number shown on the Pay Subscription screen, with Account number = your account number (e.g. EP2050 for Payroll, EL1001 for Ledgers).
+2. **Paybill**: use the Business number shown on the Pay Subscription screen, with Account number = your account number (e.g. EP2050 for Payroll, EL2050 for Ledgers).
 
 Your account updates automatically once M-Pesa confirms the payment. Keep the M-Pesa confirmation SMS. An electronic receipt is emailed and available in your account.
 
