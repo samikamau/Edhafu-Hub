@@ -54,7 +54,7 @@ Deno.serve(async (req) => {
 
     // 3. Create the auth user, or reuse the existing one if this email
     //    already has a login (someone in another organisation, say).
-    const redirectTo = redirect_to || "https://ledgers.edhafu.com/reset-password.html";
+    const redirectTo = redirect_to || "https://finlens-ledgers.netlify.app/reset-password.html";
 
     const { data: invited, error: inviteError } = await admin.auth.admin
       .inviteUserByEmail(email, { redirectTo });
